@@ -1,6 +1,7 @@
 package com.example.sbb1.article;
 
 import com.example.sbb1.DataNotFoundException;
+import com.example.sbb1.user.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +28,24 @@ public class ArticleService {
 
     }
 
-    public void create(String title,String content){
+    public void create(String title, String content, SiteUser user){
         Article article = new Article();
         article.setTitle(title);
         article.setContent(content);
         article.setCreateDate(LocalDateTime.now());
+        article.setAuthor(user);
         this.articleRepository.save(article);
 
+    }
+
+    public void modify(Article article, String title, String content){
+        article.setTitle(title);
+        article.setContent(content);
+        article.setModifyDae(LocalDateTime.now());
+        this.articleRepository.save(article);
+    }
+
+    public void delete(Article article){
+        this.articleRepository.delete(article);
     }
 }

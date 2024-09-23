@@ -33,12 +33,14 @@
 
 
 
-    <!-- Email -->
+
+    <!-- Nickname -->
     <div class="form-group">
-      <label for="email">이메일</label>
-      <input type="email" id="email" th:field="*{email}" class="form-control" />
-      <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</p>
+      <label for="nickname">닉네임</label>
+      <input type="text" id="nickname" th:field="*{nickname}" class="form-control" />
+      <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname error</p>
     </div>
+
     <!-- Submit Button -->
     <div class="form-group">
       <button type="submit" class="btn btn-primary">회원가입</button>
